@@ -35,9 +35,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Set<Employee> printEmployees(Set<Employee> employees) {
-        return employees;
+    public Set<Employee> getEmployees() {
+        return new HashSet<>(employees);
     }
+
 
 
 }

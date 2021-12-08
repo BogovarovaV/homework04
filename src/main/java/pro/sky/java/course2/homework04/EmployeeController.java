@@ -34,9 +34,8 @@ public class EmployeeController {
         return employeeService.findEmployee(firstName, lastName);
     }
 
-    @GetMapping("/print")
-    public Set<Employee> printEmployees(Set<Employee> employees) {
-        employeeService.printEmployees(employees);
-        return (employees);
+    @GetMapping("/all")
+    public Set<Employee> getEmployees() {
+        return employeeService.getEmployees();
     }
 }
