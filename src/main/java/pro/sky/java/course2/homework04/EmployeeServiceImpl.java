@@ -19,10 +19,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void removeEmployee(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
-        if (employees.contains(employee)){
-            employees.remove(employee);
+        if (!employees.remove(employee)){
+            throw new EmployeeIsNotFoundException();
         }
-        throw new EmployeeIsNotFoundException();
     }
 
     @Override
