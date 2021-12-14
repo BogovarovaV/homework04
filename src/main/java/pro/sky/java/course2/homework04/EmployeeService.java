@@ -1,5 +1,7 @@
 package pro.sky.java.course2.homework04;
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 
 public interface EmployeeService {
@@ -8,7 +10,7 @@ public interface EmployeeService {
 
     void removeEmployee(String firstName, String lastName);
 
-    Employee findEmployee(String firstName, String lastName);
+    Employee findEmployee(String key);
 
-    Set<Employee> getEmployees();
+    Collection<Employee> getEmployees();
 }

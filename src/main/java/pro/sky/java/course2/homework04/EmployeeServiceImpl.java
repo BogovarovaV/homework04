@@ -2,40 +2,52 @@ package pro.sky.java.course2.homework04;
 
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-    private final Set<Employee> employees = new HashSet<>();
+    String key;
+    private final Map<String, Employee> employees = new HashMap<>();
+
+    private String getKey(String firstName, String lastName) {
+        key = lastName + firstName;
+        return key;
+    }
 
     @Override
     public void addEmployee(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
-        employees.add(employee);
+        if (employees.containsValue(employee)) {
+            throw new IllegalArgumentException();
+        } else {
+            employees.put(getKey(firstName, lastName), employee);
+        }
     }
 
     @Override
     public void removeEmployee(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
-        if (!employees.remove(employee)){
+        if (employees.containsValue(employee)) {
+            employees.remove(key);
+        } else {
             throw new EmployeeIsNotFoundException();
         }
     }
 
     @Override
-    public Employee findEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
-        if (employees.contains(employee)){
-            return employee;
+    public Employee findEmployee(String key) {
+        if (employees.containsKey(key)){
+            return employees.get(key);
         }
         throw new EmployeeIsNotFoundException();
     }
 
     @Override
-    public Set<Employee> getEmployees() {
-        return new HashSet<>(employees);
+    public Collection<Employee> getEmployees() {
+        return employees.values();
     }
 
 }

@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -30,12 +32,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/find")
-    public Employee findEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.findEmployee(firstName, lastName);
+    public Employee findEmployee(@RequestParam String key) {
+        return employeeService.findEmployee(key);
     }
 
     @GetMapping("/all")
-    public Set<Employee> getEmployees() {
+    public Collection<Employee> getEmployees() {
         return employeeService.getEmployees();
     }
 }
