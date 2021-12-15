@@ -10,7 +10,7 @@ public interface EmployeeService {
 
     void removeEmployee(String firstName, String lastName);
 
-    Employee findEmployee(String key);
+    Employee findEmployee(String firstName, String lastName);
 
     Collection<Employee> getEmployees();
 }
