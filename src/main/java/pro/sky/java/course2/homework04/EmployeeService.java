@@ -1,8 +1,6 @@
 package pro.sky.java.course2.homework04;
 
 import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
 
 public interface EmployeeService {
 

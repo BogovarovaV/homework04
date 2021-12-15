@@ -9,12 +9,10 @@ import java.util.Map;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-    String key;
     private final Map<String, Employee> employees = new HashMap<>();
 
     private String getKey(String firstName, String lastName) {
-        key = lastName + firstName;
-        return key;
+        return lastName + firstName;
     }
 
     @Override
@@ -29,8 +27,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public void removeEmployee(String firstName, String lastName) {
-        if (employees.containsKey(key)) {
-            employees.remove(key);
+        if (employees.containsKey(getKey(firstName, lastName))) {
+            employees.remove(getKey(firstName, lastName));
         } else {
             throw new EmployeeIsNotFoundException();
         }
@@ -38,11 +36,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee findEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
-        if (employees.containsValue(employee)){
+        if (employees.get(getKey(firstName, lastName)) == null) {
+            throw new EmployeeIsNotFoundException();
+        } else {
             return employees.get(getKey(firstName, lastName));
         }
-        throw new EmployeeIsNotFoundException();
     }
 
     @Override
