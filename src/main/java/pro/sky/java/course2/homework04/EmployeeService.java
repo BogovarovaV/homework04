@@ -1,6 +1,6 @@
 package pro.sky.java.course2.homework04;
 
-import java.util.Set;
+import java.util.Collection;
 
 public interface EmployeeService {
 
@@ -10,5 +10,5 @@ public interface EmployeeService {
 
     Employee findEmployee(String firstName, String lastName);
 
-    Set<Employee> getEmployees();
+    Collection<Employee> getEmployees();
 }
