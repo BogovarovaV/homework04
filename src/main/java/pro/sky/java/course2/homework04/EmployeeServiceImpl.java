@@ -16,8 +16,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public void addEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
+    public void addEmployee(String firstName, String lastName, Integer depNumber, Double salary) {
+        Employee employee = new Employee(firstName, lastName, depNumber, salary);
         if (employees.containsKey(getKey(firstName, lastName))) {
             throw new IllegalArgumentException();
         } else {
@@ -27,8 +27,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public void removeEmployee(String firstName, String lastName) {
-        if (employees.containsKey(getKey(firstName, lastName))) {
-            employees.remove(getKey(firstName, lastName));
+        String key = getKey(firstName, lastName);
+        if (employees.containsKey(key)) {
+            employees.remove(key);
         } else {
             throw new EmployeeIsNotFoundException();
         }

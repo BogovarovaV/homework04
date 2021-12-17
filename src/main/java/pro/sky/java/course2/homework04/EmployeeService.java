@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public interface EmployeeService {
 
-    void addEmployee(String firstName, String lastName);
+    void addEmployee(String firstName, String lastName, Integer depNumber, Double salary);
 
     void removeEmployee(String firstName, String lastName);
 

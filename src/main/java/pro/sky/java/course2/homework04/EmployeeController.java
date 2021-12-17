@@ -11,15 +11,18 @@ import java.util.Collection;
 @RequestMapping("/employee")
 
 public class EmployeeController {
-    private  final EmployeeServiceImpl employeeService;
+    private final EmployeeServiceImpl employeeService;
 
     public EmployeeController(EmployeeServiceImpl employeeService) {
         this.employeeService = employeeService;
     }
 
     @GetMapping("/add")
-    public String addEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-        employeeService.addEmployee(firstName, lastName);
+    public String addEmployee(@RequestParam String firstName,
+                              @RequestParam String lastName,
+                              @RequestParam Integer depNumber,
+                              @RequestParam Double salary) {
+        employeeService.addEmployee(firstName, lastName, depNumber, salary);
         return "Сотрудник " + firstName + " " + lastName + " успешно создан.";
     }
 
