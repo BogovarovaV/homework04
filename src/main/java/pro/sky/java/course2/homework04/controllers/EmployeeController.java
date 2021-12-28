@@ -1,9 +1,12 @@
-package pro.sky.java.course2.homework04;
+package pro.sky.java.course2.homework04.controllers;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pro.sky.java.course2.homework04.Employee;
+import pro.sky.java.course2.homework04.EmployeeServiceImpl;
 
 import java.util.Collection;
 
@@ -23,6 +26,8 @@ public class EmployeeController {
                               @RequestParam Integer depNumber,
                               @RequestParam Double salary) {
         employeeService.addEmployee(firstName, lastName, depNumber, salary);
+        firstName = StringUtils.capitalize(firstName);
+        lastName = StringUtils.capitalize(lastName);
         return "Сотрудник " + firstName + " " + lastName + " успешно создан.";
     }
 

@@ -1,7 +1,6 @@
 package pro.sky.java.course2.homework04;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.Collection;
 import java.util.Comparator;
