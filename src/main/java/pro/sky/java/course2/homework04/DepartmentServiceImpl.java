@@ -1,6 +1,7 @@
 package pro.sky.java.course2.homework04;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -17,10 +18,10 @@ public class DepartmentServiceImpl implements DepartmentService{
         this.employeeService = employeeService;
     }
 
-
-    public Stream<Employee> getEmployeeList() {
-        return employeeService.getEmployees().stream();
-    }
+    //возможно, потом допищу условие с проверкой в методы с departmentId
+//    public boolean isDepartmentIdPresent (Integer departmentId) {
+//        return employeeService.getEmployeesMap().containsValue(departmentId);
+//    }
 
     @Override
     public Employee getMaxSalaryPerDepartment(Integer departmentId) {

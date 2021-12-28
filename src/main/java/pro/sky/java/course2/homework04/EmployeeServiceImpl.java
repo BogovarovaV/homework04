@@ -49,4 +49,9 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employees.values();
     }
 
+    @Override
+    public Map<String, Employee> getEmployeesMap() {
+        return employees;
+    }
+
 }

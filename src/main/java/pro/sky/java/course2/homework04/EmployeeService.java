@@ -1,6 +1,7 @@
 package pro.sky.java.course2.homework04;
 
 import java.util.Collection;
+import java.util.Map;
 
 public interface EmployeeService {
 
@@ -11,4 +12,6 @@ public interface EmployeeService {
     Employee findEmployee(String firstName, String lastName);
 
     Collection<Employee> getEmployees();
+
+    Map<String, Employee> getEmployeesMap();
 }
