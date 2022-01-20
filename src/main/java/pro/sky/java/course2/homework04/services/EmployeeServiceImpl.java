@@ -1,7 +1,8 @@
-package pro.sky.java.course2.homework04;
+package pro.sky.java.course2.homework04.services;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import pro.sky.java.course2.homework04.Employee;
 import pro.sky.java.course2.homework04.exceptions.BadRequestException;
 import pro.sky.java.course2.homework04.exceptions.EmployeeIsNotFoundException;
 
@@ -10,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     private final Map<String, Employee> employees = new HashMap<>();
 
