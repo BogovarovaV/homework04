@@ -1,4 +1,6 @@
-package pro.sky.java.course2.homework04;
+package pro.sky.java.course2.homework04.services;
+
+import pro.sky.java.course2.homework04.Employee;
 
 import java.util.Collection;
 import java.util.Map;

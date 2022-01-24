@@ -1,15 +1,14 @@
-package pro.sky.java.course2.homework04;
+package pro.sky.java.course2.homework04.services;
 
 import org.springframework.stereotype.Service;
+import pro.sky.java.course2.homework04.Employee;
 
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl implements DepartmentService {
 
     private final EmployeeService employeeService;
 
